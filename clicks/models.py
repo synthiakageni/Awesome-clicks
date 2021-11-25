@@ -33,3 +33,11 @@ class Category(models.Model):
         self.slug=slugify['{}{}'.format(self.title,self.uniqueId)]
         self.last_updated=timezone.localtime(timezone.now())
         super(Category,self).save(*args, **kwargs)        
+class Image(models.Model):
+    name = models.CharField(max_length =30)
+    descption =models.TextField(null=True,blank=True)
+    category= models.ForeignKey(Category, null=True,blank=True,on_delete=models.CASCADE)
+
+
+class Location(models.Model):
+    name = models.CharField(max_length =30)
