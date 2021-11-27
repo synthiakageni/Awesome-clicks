@@ -27,4 +27,12 @@ class ImageTestClass(TestCase):
     def test_delete_image(self):
         self.synthia.delete_image()
         image = Image.objects.all()
-        self.assertTrue(len(image)==0)      
+        self.assertTrue(len(image)==0)
+
+        self.assertTrue(len(image)==0)
+
+    def test_update_image(self):
+        self.synthia.save_image()
+        self.synthia.update_image(self.synthia.id,'rabbit.jpg')    
+        image = Image.objects.filter(photo_image='rabbit.jpg')
+        self.assertTrue(len(image)>0)  
