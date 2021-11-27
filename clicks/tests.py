@@ -23,3 +23,8 @@ class ImageTestClass(TestCase):
         self.synthia.save_image()
         images = Image.objects.all()
         self.assertTrue(len(images)>0)             
+
+    def test_delete_image(self):
+        self.synthia.delete_image()
+        image = Image.objects.all()
+        self.assertTrue(len(image)==0)      
