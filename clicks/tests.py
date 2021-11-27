@@ -12,3 +12,8 @@ class CategoryTestClass(TestCase):
         self.francis.save_category()
         categories = Category.objects.all()
         self.assertTrue(len(categories)>0)
+class ImageTestClass(TestCase):
+    def setUp(self):
+        self.category = Category(category='love')
+        self.category.save_category()
+                
