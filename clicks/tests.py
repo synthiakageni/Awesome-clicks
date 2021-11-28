@@ -40,3 +40,6 @@ class ImageTestClass(TestCase):
         image=self.synthia.get_image_by_id(self.synthia.id)
         image=Image.objects.filter(id=self.synthia.id)    
         self.assertTrue(image.query,image.query)
+    def tearDown(self):
+        Image.objects.all().delete()
+        Category.objects.all().delete()     
