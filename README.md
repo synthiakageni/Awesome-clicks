@@ -23,7 +23,7 @@ prerequisite
 1.A text editor preferably visual studio code.
 
 - git clone the repo git clone https://github.com/synthiakageni/Awesome-clicks.git
-- cd "Haven-pitch"
+- cd "awesome clicks"
 - code .
 
 
@@ -40,7 +40,7 @@ To fix a bug or enhance an existing module, follow these steps:
 - Commit your changes (git commit -am 'Improve feature')
 - Push to the branch (git push origin improve-feature)
 - Create a Pull Request
-## [Live link](https://nameless-beyond-87299.herokuapp.com/)
+## [Live link]()
 ## Known Bugs
 
 There are no known bugs.
