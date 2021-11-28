@@ -1,7 +1,7 @@
 ### Project-Name
 Awesome clicks
 ### Description
-This is a  personal gallery application where I  display my photos for others to see.
+This is a  personal gallery application where I  display my photos.A user can also search for a photo based on the category or location the photo was taken.
 
 ### Author
 <a href="https://github.com/synthiakageni"> SYNTHIA KAGENI</a>
