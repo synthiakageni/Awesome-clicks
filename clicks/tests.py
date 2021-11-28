@@ -36,3 +36,7 @@ class ImageTestClass(TestCase):
         self.synthia.update_image(self.synthia.id,'rabbit.jpg')    
         image = Image.objects.filter(photo_image='rabbit.jpg')
         self.assertTrue(len(image)>0)  
+    def test_get_image_by_id(self):
+        image=self.synthia.get_image_by_id(self.synthia.id)
+        image=Image.objects.filter(id=self.synthia.id)    
+        self.assertTrue(image.query,image.query)
