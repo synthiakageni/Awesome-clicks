@@ -1,4 +1,4 @@
-{% load static %}
+<!-- {% load static %}
 
 <!doctype html>
 <html lang="en">
@@ -15,7 +15,7 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -70,7 +70,7 @@
 </header>
 
 <main>
-
+  {%for category in categories%}
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
@@ -80,6 +80,7 @@
       </div>
     </div>
   </section>
+  {%endfor%}
 
   <div class="album py-5 bg-light">
     <div class="container">
@@ -124,4 +125,7 @@
 
 
   </body>
-</html>
+</html> --> -->
+{{%for image in images %}}
+<h1>{{image.description}}</h1>
+{{%endfor%}}

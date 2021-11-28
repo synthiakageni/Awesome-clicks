@@ -8,14 +8,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="generator" content="">
-    <title>awesome clicks</title>
+    <title>Awesome clicks</title>
 
     <link rel="canonical" href="">
 
 
 
     <!-- Bootstrap core CSS -->
-    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+     <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -35,93 +35,78 @@
 
 
   </head>
-  <body>
+  <body >
 
 <header>
-  <div class="collapse bg-dark" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">About</h4>
-          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="#" class="text-white">Email me</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong>Home</strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </div>
+  {%include 'navbar.html'%}
 </header>
 
 <main>
+    
+  <!-- Adding a search form  -->
+  <div class="col-sm-4 col-md-4 navbar-right">
 
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
+    <form class="navbar-form" role="search" action="{% url 'search_results' %}">
 
-        <h1 class="fw-light">{{category.title}}</h1>
-
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search by category" name="category">
+        <!-- <input type="text" class="form-control" placeholder="Search by location" name="location"> -->
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">submit</button>
+        </div>
       </div>
-    </div>
-  </section>
 
+    </form>
+  </div>
+  <!-- search form end -->
   <div class="album py-5 bg-light">
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-        {% if images|length > 0 %}
+       
         {% for image in images %}
+        <!-- <h1 > {{ image.name }}</h1>
+       <p>{{image.category}}</p>
+   -->
         <div class="col">
           <div class="card shadow-sm">
 
-            <img src="/images/example.png" alt="{{image.altText}}">
+            <!-- <img src="{{image.image}}" alt="{{image.altText}}"> -->
 
             <div class="card-body">
-              <p class="card-text">{{image.shortDescription}} . . . <a href="{}">read more</a></p>
+              <img src="{{image.image.url}}" alt="image of {{image.name}}" class="img-fluid gallery ">
+
+              <!-- {{image.image}} -->
+              <p class="card-text">{{image.description}} . . . <a href="{% url 'image-detail' %}">read more</a></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="{}"><button type="button" class="btn btn-sm btn-outline-secondary">Image Details</button></a>
+                  <a href="{% url 'image-detail'%}"><button type="button" class="btn btn-sm btn-outline-secondary">Image Details</button></a>
                 </div>
-                <small class="text-muted">{{image.date_created|date}}</small>
+                <small class="text-muted">{{category.date_created|date}}</small>
               </div>
             </div>
           </div>
         </div>
         {% endfor %}
-        {% else %}
-        <h2>No Images Uploaded for this category</h2>
-        {% endif %}
+        
+   
 
       </div>
     </div>
   </div>
 
 </main>
+ 
 
-<footer class="text-muted py-5">
-  
-</footer>
-
-
-    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
 
 
   </body>
-</html>
+</html> 
+<!-- {% for image in images %}
+  
+       <h1> {{ image.name }}</h1>
+       <p>{{image.category}}</p>
+  
+{% endfor %}  -->
