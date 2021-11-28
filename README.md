@@ -1,9 +1,7 @@
 ### Project-Name
-Cynie-blog
+Awesome clicks
 ### Description
-This is a personal blogging website where you can create and share your opinions and other users can read and comment on them
-
-
+This is a  personal gallery application where I  display my photos for others to see.
 
 ### Author
 <a href="https://github.com/synthiakageni"> SYNTHIA KAGENI</a>
@@ -14,8 +12,6 @@ This is a personal blogging website where you can create and share your opinions
 - Python
 - HTML
 - CSS
-- Mako
-- Shell
 
 
 
@@ -26,7 +22,7 @@ To run the app in your machine or server,use the following steps:
 prerequisite
 1.A text editor preferably visual studio code.
 
-- git clone the repo git clone https://github.com/synthiakageni/cynie-blog.git
+- git clone the repo git clone https://github.com/synthiakageni/Awesome-clicks.git
 - cd "Haven-pitch"
 - code .
 
