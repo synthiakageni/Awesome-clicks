@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import *
+from django.http.response import Http404
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 
@@ -47,5 +49,19 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
 
+def detail(request,image_id):
+    try:
+        image = Image.objects.get(id = image_id)
+    except ObjectDoesNotExist:
+        raise Http404()
+    return render(request, 'detail.html', {"image":image})
+def description(request,image_id):
+    try:
+        image = Image.objects.get(id = image_id)
+    except ObjectDoesNotExist:
+        raise Http404()
+    return render(request, 'description.html', {"image":image})
+
+    
 
 

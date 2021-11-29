@@ -1,4 +1,39 @@
-{% for image in images%}
+
+{% load static %}
+ <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <img src="{{image.photo.url}}" alt="" style="max-width: 100%; min-height: 100%;">
+        </div>
+       <div class="col-md-5">
+        <h6 style="color: blue;"> Name: {{image.name}}</h6>
+        <p style="color: blue;"> Description: {{image.descption}}</p>
+        <h6 style="color: blue;"> Category: {{image.category}}</h6>
+        <h6>{{category.date_created}}</h6>
+        <div class="modal-body">
+            
+            <h5 style="margin-top: 10px">Copy Url for {{image.name}}</h5>
+            <input type="text" value="http://127.0.0.1:8000{{image.photo.url}}" id="{{image.id}}" />
+            <button class="btn btn-outline-primary" onclick="copyUrl()">Copy</button>
+        </div>
+        <script>
+            function copyUrl() {
+            /* Get the text field */
+            var copyText = document.getElementById("{{image.id}}");
+            console.log(copyText.value);
+            /* Select the text field */
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /* For mobile devices */
+            /* Copy the text inside the text field */
+            navigator.clipboard.writeText(copyText.value);
+            /* Alert the copied text */
+            alert("Copied the text: " + copyText.value);
+            }
+        </script>
+       </div>
+        
+    </div>
     
-    <h1>{{image.description}}</h1>
-{% endfor %}
+    
+</div>

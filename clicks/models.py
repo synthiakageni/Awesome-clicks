@@ -1,6 +1,6 @@
 from enum import unique
 from django.db import models
-from django.template.defaultfilters import slugify, title
+from django.template.defaultfilters import  title
 from django.utils import timezone
 from uuid import uuid4
 from django.conf import settings
@@ -39,16 +39,26 @@ class Category(models.Model):
         self.last_updated=timezone.localtime(timezone.now())
         super(Category,self).save(*args, **kwargs)  
 
+class Location(models.Model):
+    name = models.CharField(max_length =30,null=True)
+
+    
+    def __str__(self):
+        return self.name
+
+    def save_location(self):
+        self.save()
+
+    def delete_location(self):
+        self.delete()
+
 class Image(models.Model):
     name = models.CharField(max_length =30)
     descption =models.TextField(null=True,blank=True)
     category= models.ForeignKey(Category, null=True,blank=True,on_delete=models.CASCADE)
-    image = models.ImageField(upload_to = 'images/')
-
+    photo = models.ImageField(upload_to = 'images/')
     @classmethod  
     def search_by_category(cls,search_term):
         category = cls.objects.filter(title__icontains=search_term)
         return category 
 
-class Location(models.Model):
-    name = models.CharField(max_length =30)

@@ -16,6 +16,7 @@
 
     <!-- Bootstrap core CSS -->
      <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+     <!-- <link href="{% static 'assets/css/base.css' %}" rel="stylesheet"> -->
 
     <style>
       .bd-placeholder-img {
@@ -59,6 +60,7 @@
     </form>
   </div>
   <!-- search form end -->
+ 
   <div class="album py-5 bg-light">
     <div class="container">
 
@@ -69,21 +71,27 @@
         <!-- <h1 > {{ image.name }}</h1>
        <p>{{image.category}}</p>
    -->
+   
+
         <div class="col">
           <div class="card shadow-sm">
 
             <!-- <img src="{{image.image}}" alt="{{image.altText}}"> -->
 
             <div class="card-body">
-              <img src="{{image.image.url}}" alt="image of {{image.name}}" class="img-fluid gallery ">
+              <div class="card-holder">
+                      <img src="{{image.photo.url}}" alt="image of {{image.name}}" class="img-fluid gallery ">
+              </div>
 
               <!-- {{image.image}} -->
-              <p class="card-text">{{image.description}} . . . <a href="{% url 'image-detail' %}">read more</a></p>
+              <p class="card-text">{{image.descption}} . . . <a href="{% url 'description' image.id %}">read more</a></p>
+              
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="{% url 'image-detail'%}"><button type="button" class="btn btn-sm btn-outline-secondary">Image Details</button></a>
+                  <a href="{% url 'detail' image.id%}"><button type="button" class="btn btn-sm btn-outline-secondary">Image Details</button></a>
                 </div>
                 <small class="text-muted">{{category.date_created|date}}</small>
+                
               </div>
             </div>
           </div>
@@ -100,6 +108,7 @@
  
 
 <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+
 
 
   </body>
