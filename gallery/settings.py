@@ -1,7 +1,4 @@
-import os
-import django_heroku 
-import dj_database_url
-import cloudinary
+
 """
 Django settings for gallery project.
 
@@ -13,10 +10,12 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
-from pathlib import Path
+import os
+import django_heroku 
+import dj_database_url
+import cloudinary
+from pathlib import PurePath
 from decouple import config,Csv
-
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
