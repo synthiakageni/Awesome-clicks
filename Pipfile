@@ -6,6 +6,11 @@ name = "pypi"
 [packages]
 django-heroku = "*"
 decouple = "*"
+cloudinary = "*"
+django-bootstrap5 = "*"
+gunicorn = "*"
+django-cloudinary-storage = "*"
+python-decouple = "*"
 
 [dev-packages]
 

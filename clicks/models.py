@@ -5,6 +5,8 @@ from django.utils import timezone
 from uuid import uuid4
 from django.conf import settings
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
+
 
 
 # Create your models here.
@@ -56,7 +58,7 @@ class Image(models.Model):
     name = models.CharField(max_length =30)
     descption =models.TextField(null=True,blank=True)
     category= models.ForeignKey(Category, null=True,blank=True,on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to = 'images/')
+    photo =CloudinaryField("photo")
     @classmethod  
     def search_by_category(cls,search_term):
         category = cls.objects.filter(title__icontains=search_term)
