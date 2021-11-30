@@ -49,8 +49,7 @@ class Category(models.Model):
 
 #     def delete_location(self):
 #         self.delete()
-#     def __str__(self):
-#         return self.names
+
 
    
 
