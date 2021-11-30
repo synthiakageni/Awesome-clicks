@@ -41,18 +41,18 @@ class Category(models.Model):
         self.last_updated=timezone.localtime(timezone.now())
         super(Category,self).save(*args, **kwargs)  
 
-class Location(models.Model):
-    name = models.CharField(max_length =30,null=True)
+# class Location(models.Model):
+#     name = models.CharField(max_length =30, null=True, blank=True)
 
-    
-    def __str__(self):
-        return self.name
+#     def save_location(self):
+#         self.save()
 
-    def save_location(self):
-        self.save()
+#     def delete_location(self):
+#         self.delete()
+#     def __str__(self):
+#         return self.name
 
-    def delete_location(self):
-        self.delete()
+   
 
 class Image(models.Model):
     name = models.CharField(max_length =30)
