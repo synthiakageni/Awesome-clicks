@@ -16,14 +16,16 @@ import dj_database_url
 import cloudinary
 from pathlib import PurePath
 from decouple import config,Csv
+
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 # development
 if config('MODE')=="dev":
+    
    DATABASES = {
        'default': {
-           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'ENGINE': 'django.db.backends.postgresql',
            'NAME': config('DB_NAME'),
            'USER': config('DB_USER'),
            'PASSWORD': config('DB_PASSWORD'),
@@ -34,7 +36,7 @@ if config('MODE')=="dev":
    }
 # production
 else:
-   DATABASES = {
+    DATABASES = {
        'default': dj_database_url.config(
            default=config('DATABASE_URL')
        )
